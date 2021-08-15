@@ -1,37 +1,170 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html lang="en">
 
-You can use the [editor on GitHub](https://github.com/shaikh1896/shipment/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<body>
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+    <div style="color:black">
+        <form action="{{ url_for('predict')}}" method="post">
+            <h2>Shipment Prediction (Delay/On time)</h2>
+            <h3>Warehouse_block(A TO F)</h3><br><<select id="fuel" name="Warehouse_block" required="required">
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="F">F</option> 
+            </select>
+            <h3>What is the Mode_of_Shipment?</h3><br><<select id="Mode" name="Mode_of_Shipment" required="required">
+                <option value="Flight">Flight</option>
+                <option value="Ship">Ship</option>
+                <option value="Road">Road</option>
+            </select>
+            <h3>What is the cost of Product(in $)?</h3><input id="research" name="Cost_of_the_Product" required="required">
+            <h3>How much Discount_offered(in $) ?</h3><br><input id="research" name="Discount_offered" required="required">
+            <h3>What Is the Weight_in_gms?</h3><br><input id="research" name="Weight_in_gms" required="required">
+            <h3>What Is the Customer rating on scale of 5?</h3><br><input id="research" name="Customer_rating" required="required">
+            <h3>Number of calls made by customer before order is delivered?</h3><br><input id="research" name="Customer_care_calls" required="required">
+            <h3>How many prior purchases done by customer?</h3><br><input id="research" name="Prior_purchases" required="required">
+            <h3>What is the product importance?</h3><br><select name="Product_importance" id="resea" required="required">
+                <option value="high">high</option>
+                <option value="medium">medium</option>
+                <option value="mow">low</option>
+            </select>
+            <h3>Customer gender</h3><br><select name="Gender" id="resea" required="required">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
+            
+            <br><br><button id="sub" type="submit "> </p>Predict if order will be dalayed or not</p></button>
+            <br>
 
-```markdown
-Syntax highlighted code block
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
+        </form>
 
-**Bold** and _Italic_ and `Code` text
 
-[Link](url) and ![Image](src)
-```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+        <br><br><h3>{{ prediction_text }}<h3>
+    </div>
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/shaikh1896/shipment/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+    <style>
+        body {
+            background-color: SlateBlue;
+            text-align: center;
+            padding: 0px;
+        }
+        
+        #research {
+            font-size: 18px;
+            width: 100px;
+            height: 23px;
+            top: 23px;
+        }
+        
+        #box {
+            border-radius: 60px;
+            border-color: 45px;
+            border-style: solid;
+            font-family: cursive;
+            text-align: center;
+            background-color: rgb(168, 131, 61);
+            font-size: medium;
+            position: absolute;
+            width: 700px;
+            bottom: 9%;
+            height: 850px;
+            right: 30%;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+        }
+        
+        #fuel {
+            width: 83px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 20px;
+        }
+        
+        #fuel:hover {
+            background-color: coral;
+        }
+        
+        #research {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #research:hover {
+            background-color: coral;
+        }
+        
+        #resea {
+            width: 99px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #resea:hover {
+            background-color: coral;
+        }
+        
+        #sub {
+            width: 120px;
+            height: 43px;
+            text-align: center;
+            border-radius: 14px;
+            font-size: 18px;
+        }
+        
+        #sub:hover {
+            background-color: darkcyan;
+        }
+        
+        #first {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #Mode {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #third {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+        
+        #fourth {
+            border-radius: 14px;
+            height: 25px;
+            font-size: 20px;
+            text-align: center;
+        }
+    </style>
+</body>
+
+</html>
